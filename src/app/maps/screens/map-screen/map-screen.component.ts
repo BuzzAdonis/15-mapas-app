@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { PlacesService } from '../../services';
 
 @Component({
   selector: 'app-map-screen',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./map-screen.component.css']
 })
 export class MapScreenComponent {
-
+  private placesService = inject( PlacesService );
+  public isUserLocationReady = computed<boolean>(() => this.placesService.isUserLocationReady())
 }
